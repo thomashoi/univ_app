@@ -1,13 +1,13 @@
 <header>
   <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
+    <li><%= session_link %></li>
     <li><a href="#!">two</a></li>
     <li class="divider"></li>
     <li><a href="#!">three</a></li>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">one</a></li>
+    <li><%= session_link %></li>
     <li><a href="#!">two</a></li>
     <li class="divider"></li>
     <li><a href="#!">three</a></li>
@@ -16,10 +16,12 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <div class="container">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Tech University</a>
+        <%= link_to 'Tech University', root_path, class: "brand-logo" %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#">Courses</a></li>
-          <li><a href="#">Enrollments</a></li>
+          <li><%= link_to 'Courses', root_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to 'Student', students_path %></li>
+          <% end %>
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account
                               <i class="material-icons right">arrow_drop_down</i></a></li>
